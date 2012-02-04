@@ -105,6 +105,12 @@ elsif ($cmd eq 'on') {
     }
     else {
         my $usesymlink = $conf{usesymlink} eq 'true';
+        if ($usesymlink) {
+            `ln -s "${githookshome}/templates/dispatcher" "${gitdir}/hooks/"`;
+        }
+        else {
+            copy "${githookshome}/templates/dispatcher", $gitdir . '/hooks/';
+        }
         foreach (@args) {
             if ($_ eq 'ci') { next; }
 
