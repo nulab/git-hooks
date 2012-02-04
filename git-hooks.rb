@@ -1,8 +1,8 @@
 require 'formula'
 
 class GitHooks < Formula
-  head 'https://github.com/bleis-tift/Git-Hooks.git', :branch => 'rewrite'
-  homepage 'https://github.com/bleis-tift/Git-Hooks'
+  head 'https://github.com/mistilteinn/git-hooks.git', :branch => 'rewrite'
+  homepage 'https://github.com/mistilteinn'
 
   def install
     system "perl", "Install.PL", "-v", "linux", "--prefix=" + prefix
