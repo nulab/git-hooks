@@ -106,7 +106,7 @@ elsif ($cmd eq 'on') {
     else {
         my $usesymlink = $conf{usesymlink} eq 'true';
         if ($usesymlink) {
-            `ln -s "${githookshome}/templates/dispatcher" "${gitdir}/hooks/"`;
+            `ln -sf "${githookshome}/templates/dispatcher" "${gitdir}/hooks/"`;
         }
         else {
             copy "${githookshome}/templates/dispatcher", $gitdir . '/hooks/';
@@ -115,7 +115,7 @@ elsif ($cmd eq 'on') {
             if ($_ eq 'ci') { next; }
 
             if ($usesymlink) {
-                `ln -s "${githookshome}/templates/common" "${gitdir}/hooks/$_"`;
+                `ln -sf "${githookshome}/templates/common" "${gitdir}/hooks/$_"`;
             }
             else {
                 copy "${githookshome}/templates/common", $gitdir . '/hooks/' . $_;
