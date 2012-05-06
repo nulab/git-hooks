@@ -43,7 +43,7 @@ sub extract_ticket_id {
 sub append_msg_to_1st_line_if_not_exists {
     my ($msg, $str, $cond) = @_;
     $_ = $msg;
-    1 while (s/ $str//);
+    1 while (s/$str //);
     return $_ if (/$cond/);
     append_msg_to_1st_line($_, $str);
 }
@@ -51,7 +51,7 @@ sub append_msg_to_1st_line_if_not_exists {
 sub append_msg_to_1st_line {
     my ($msg, $str) = @_;
     $_ = $msg;
-    s/([^\r\n]+)/$1 $str/;
+    s/([^\r\n]+)/$str $1/;
     $_;
 }
 
