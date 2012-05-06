@@ -35,8 +35,8 @@ sub is_master_branch {
 sub extract_ticket_id {
     my $repos = shift;
     $_ = $repos->branch_name;
-    if ($_ !~ m"id/\d+") { return ''; }
-    s".*id/(\d+).*"refs #$1";
+    if ($_ !~ m"id/[A-Z]+-\d+") { return ''; }
+    s".*id/([A-Z]+-\d+).*"$1";
     $_;
 }
 

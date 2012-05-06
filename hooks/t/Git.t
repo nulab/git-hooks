@@ -64,14 +64,14 @@ is(Git::extract_ticket_id($repos), '');
 $branch = 'hoge';
 is(Git::extract_ticket_id($repos), '');
 
-$branch = 'id/1234';
-is(Git::extract_ticket_id($repos), 'refs #1234');
+$branch = 'id/BLG-1234';
+is(Git::extract_ticket_id($repos), 'BLG-1234');
 
-$branch = 'hoge/id/999';
-is(Git::extract_ticket_id($repos), 'refs #999');
+$branch = 'hoge/id/BLG-999';
+is(Git::extract_ticket_id($repos), 'BLG-999');
 
-$branch = 'hoge/id/42/hogehoge';
-is(Git::extract_ticket_id($repos), 'refs #42');
+$branch = 'hoge/id/BLG-42/hogehoge';
+is(Git::extract_ticket_id($repos), 'BLG-42');
 
 # チケットIDを持っているかどうか
 $msg = 'hogehoge refs #42';
