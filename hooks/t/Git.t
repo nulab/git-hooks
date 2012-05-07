@@ -43,14 +43,11 @@ piyopiyo
 EOS
 ;
 {
-    is(Git::append_msg_to_1st_line_if_not_exists($msg, 'BLG-3456', 'closes BLG-3456'), $expected, 'append_msg_to_1st_line_if_not_exists - normal');
+    is(Git::append_msg_to_1st_line_if_not_exists($msg, 'BLG-3456'), $expected, 'append_msg_to_1st_line_if_not_exists - normal');
     (my $msg2 = $msg) =~ s/hogehoge/BLG-3456 hogehoge/;
-    is(Git::append_msg_to_1st_line_if_not_exists($msg2, 'BLG-3456', 'closes BLG-3456'), $expected, 'append_msg_to_1st_line_if_not_exists - included');
+    is(Git::append_msg_to_1st_line_if_not_exists($msg, 'BLG-3456'), $expected, 'append_msg_to_1st_line_if_not_exists - included');
     $msg2 =~ s/hogehoge/BLG-3456 hogehoge/;
-    is(Git::append_msg_to_1st_line_if_not_exists($msg2, 'BLG-3456', 'closes BLG-3456'), $expected, 'append_msg_to_1st_line_if_not_exists - multi');
-    $msg2 =~ s/hogehoge/BLG-3456 hogehoge closes/;
-    (my $expected2 = $expected) =~ s/hogehoge/hogehoge closes/;    
-    is(Git::append_msg_to_1st_line_if_not_exists($msg2, 'BLG-3456', 'closes BLG-3456'), $expected2, 'append_msg_to_1st_line_if_not_exists - closed');
+    is(Git::append_msg_to_1st_line_if_not_exists($msg, 'BLG-3456'), $expected, 'append_msg_to_1st_line_if_not_exists - multi');
 }
 is(Git::append_msg_to_1st_line($msg, 'BLG-3456'), $expected);
 chomp($msg);

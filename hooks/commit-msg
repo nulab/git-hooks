@@ -24,8 +24,7 @@ if (Git::is_empty($msg)) { exit 0; }
 my $ticket = Git::extract_ticket_id($repos);
 if ($ticket eq '') { exit 0; }
 
-(my $close = $ticket) =~ s/refs/closes/;
-$msg = Git::append_msg_to_1st_line_if_not_exists($msg, $ticket, $close);
+$msg = Git::append_msg_to_1st_line_if_not_exists($msg, $ticket);
 my $f = IO::File->new($msgfile, 'w');
 $f->print($msg);
 $f->close;
