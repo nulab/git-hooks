@@ -34,12 +34,14 @@ $msg = <<EOS
 hogehoge
 
 piyopiyo
+# On branch id/BLG-3456
 EOS
 ;
 my $expected = <<EOS
 BLG-3456 hogehoge
 
 piyopiyo
+# On branch id/BLG-3456
 EOS
 ;
 {
